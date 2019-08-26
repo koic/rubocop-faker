@@ -1,0 +1,4 @@
+example_id                        | status | run_time        |
+--------------------------------- | ------ | --------------- |
+./spec/rubocop/faker_spec.rb[1:1] | passed | 0.00103 seconds |
+./spec/rubocop/faker_spec.rb[1:2] | failed | 0.0248 seconds  |

@@ -1,7 +1,13 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-# Specify your gem's dependencies in rubocop-faker.gemspec
+source 'https://rubygems.org'
+
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
 gemspec
 
-gem "rake", "~> 12.0"
-gem "rspec", "~> 3.0"
+gem 'rake'
+gem 'rspec'
+gem 'rubocop', github: 'rubocop-hq/rubocop'
+gem 'rubocop-performance', '~> 1.4.0'
+gem 'yard', '~> 0.9'
