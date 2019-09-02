@@ -1,5 +1,8 @@
 # RuboCop Faker
 
+[![Gem Version](https://badge.fury.io/rb/rubocop-faker.svg)](https://badge.fury.io/rb/rubocop-faker)
+[![CircleCI](https://circleci.com/gh/koic/rubocop-faker.svg?style=svg)](https://circleci.com/gh/koic/rubocop-faker)
+
 A [RuboCop](https://github.com/rubocop-hq/rubocop) extension for [Faker](https://github.com/faker-ruby/faker).
 
 RuboCop Faker is a tool for converting your Faker's methods to the latest Faker argument style with static code analysis.
