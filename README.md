@@ -1,39 +1,62 @@
-# Rubocop::Faker
+# RuboCop Faker
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/faker`. To experiment with that code, run `bin/console` for an interactive prompt.
+A [RuboCop](https://github.com/rubocop-hq/rubocop) extension for [Faker](https://github.com/faker-ruby/faker).
 
-TODO: Delete this and the text above, and describe your gem
+RuboCop Faker is a tool for converting your Faker's methods to the latest Faker argument style with static code analysis.
+
+With RuboCop Faker you can upgrade your Faker 1 codes to Faker 2 in no time. It supports [conversions](https://github.com/koic/rubocop-faker/blob/master/config/default.yml) for almost all of the Faker 2 changes.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Just install the `rubocop-faker` gem
+
+```sh
+gem install rubocop-faker
+```
+
+or if you use bundler put this in your `Gemfile`
 
 ```ruby
 gem 'rubocop-faker'
 ```
 
-And then execute:
+## Examples
 
-    $ bundle install
+Here's an example.
 
-Or install it yourself as:
+```ruby
+Faker::Avatar.image(slug, size, format, set, bgset)
+```
 
-    $ gem install rubocop-faker
+RuboCop Faker would convert it to the following Faker 2 form:
+
+```
+Faker::Avatar.image(slug: slug, size: size, format: format, set: set, bgset: bgset)
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+You need to tell RuboCop to load the Faker extension.
 
-## Development
+This gem offers the only `Faker/DeprecatedArguments` cop. It is intended to convert a Faker 2 compatible interface.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Command line
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Check positional argument style before Faker 2.
+
+```console
+% rubocop --require rubocop-faker --only Faker/DeprecatedArguments
+```
+
+Auto-correction to keyword argument style on Faker 2.
+
+```console
+% rubocop --require rubocop-faker --only Faker/DeprecatedArguments --auto-correct
+```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/koic/rubocop-faker.
-
 
 ## License
 
