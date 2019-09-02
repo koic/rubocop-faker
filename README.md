@@ -30,7 +30,7 @@ Faker::Avatar.image(slug, size, format, set, bgset)
 
 RuboCop Faker would convert it to the following Faker 2 form:
 
-```
+```ruby
 Faker::Avatar.image(slug: slug, size: size, format: format, set: set, bgset: bgset)
 ```
 
