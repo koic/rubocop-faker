@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Koichi ITO']
   spec.email         = ['koic.ito@gmail.com']
 
-  spec.summary       = 'A RuboCop extension for Faker'
-  spec.description   = 'A RuboCop extension for Faker'
+  spec.summary       = 'A RuboCop extension for Faker.'
+  spec.description   = 'A RuboCop extension for Faker.'
   spec.homepage      = 'https://github.com/koic/rubocop-faker'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')

@@ -22,7 +22,7 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
     RUBY
   end
 
-  it 'does not register an offense when using a positional argument' do
+  it 'registers an offense when using a positional argument' do
     expect_offense(<<~RUBY)
       Faker::Avatar.image(slug)
                           ^^^^ Passing `slug` with the 1st argument of `Faker::Avatar.image` is deprecated. Use keyword argument like `Faker::Avatar.image(slug: slug)` instead.
@@ -33,7 +33,7 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
     RUBY
   end
 
-  it 'does not register an offense ' \
+  it 'registers an offense ' \
      'when keyword name and actual argument name are different' do
     expect_offense(<<~RUBY)
       Faker::Avatar.image(arg)
@@ -45,7 +45,7 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
     RUBY
   end
 
-  it 'does not register an offense when using a positional argument with a kwarg' do
+  it 'registers an offense when using a positional argument with a kwarg' do
     expect_offense(<<~RUBY)
       Faker::Avatar.image(slug, size: size, format: format)
                           ^^^^ Passing `slug` with the 1st argument of `Faker::Avatar.image` is deprecated. Use keyword argument like `Faker::Avatar.image(slug: slug)` instead.
@@ -56,7 +56,7 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
     RUBY
   end
 
-  it 'does not register an offense when using a positional arguments' do
+  it 'registers an offense when using a positional arguments' do
     expect_offense(<<~RUBY)
       Faker::Avatar.image(slug, size, format, set, bgset)
                                                    ^^^^^ Passing `bgset` with the 5th argument of `Faker::Avatar.image` is deprecated. Use keyword argument like `Faker::Avatar.image(bgset: bgset)` instead.
