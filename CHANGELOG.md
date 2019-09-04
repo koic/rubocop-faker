@@ -1,5 +1,9 @@
 ## master (unreleased)
 
+### Bug fixes
+
+* Fix a problem that config/default.yml setting is not applied if .rubocop.yml does not exist when `rubocop --require rubocop-faker` option is used. ([@koic][])
+
 ## 0.1.0 (2019-09-02)
 
 ### New features

@@ -105,7 +105,17 @@ module RuboCop
         end
 
         def argument_keywords
-          cop_config.fetch('ArgumentKeywords', {})
+          cop_config.fetch('ArgumentKeywords')
+        # Workaround for a problem that config/default.yml setting is not applied
+        # if .rubocop.yml does not exist when `rubocop --require rubocop-faker`
+        # option is used.
+        rescue KeyError
+          config = File.read(
+            File.join(File.dirname(__FILE__), '../../../../config/default.yml')
+          )
+          yaml = YAML.safe_load(config)
+
+          yaml[cop_name].fetch('ArgumentKeywords', {})
         end
       end
     end
