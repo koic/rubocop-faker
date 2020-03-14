@@ -70,4 +70,17 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
       Faker::Avatar.image(slug: slug, size: size, format: format, set: set, bgset: bgset)
     RUBY
   end
+
+  context 'using `Faker::Base.unique`' do
+    it 'registers an offense when using a positional argument' do
+      expect_offense(<<~RUBY)
+        Faker::Avatar.unique.image(slug)
+                                   ^^^^ Passing `slug` with the 1st argument of `Faker::Avatar.image` is deprecated. Use keyword argument like `Faker::Avatar.image(slug: slug)` instead.
+      RUBY
+
+      expect_correction(<<~RUBY)
+        Faker::Avatar.unique.image(slug: slug)
+      RUBY
+    end
+  end
 end

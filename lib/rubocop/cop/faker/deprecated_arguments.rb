@@ -28,6 +28,9 @@ module RuboCop
           class_name = faker_class_name(node)
 
           return unless (methods = argument_keywords[class_name])
+
+          node = node.parent if unique_generator_method?(node)
+
           return unless (keywords = methods[node.method_name.to_s])
 
           node.arguments.each_with_index do |argument, index|
@@ -55,6 +58,10 @@ module RuboCop
         end
 
         private
+
+        def unique_generator_method?(node)
+          node.method?(:unique) && node.arguments.size.zero?
+        end
 
         def format_message(keyword:, arg:, index:, class_name:, method_name:)
           i = case index
@@ -92,7 +99,11 @@ module RuboCop
         end
 
         def faker_class_name(node)
-          node.receiver.source
+          if node.children.first.send_type? && node.children.first.method?(:unique)
+            node.children.first.receiver.source
+          else
+            node.receiver.source
+          end
         end
 
         def arguments_range(node)
