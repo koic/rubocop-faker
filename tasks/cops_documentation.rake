@@ -197,7 +197,6 @@ task generate_cops_documentation: :yard_for_generate_documentation do
     cops_body(config, cop, description, examples_object, pars)
   end
 
-  # rubocop:disable Metrics/AbcSize
   def table_of_content_for_department(cops, department)
     selected_cops = cops_of_department(cops, department.to_sym).select do |cop|
       cop.to_s.start_with?('RuboCop::Cop::Faker')
@@ -214,7 +213,6 @@ task generate_cops_documentation: :yard_for_generate_documentation do
 
     content
   end
-  # rubocop:enable Metrics/AbcSize
 
   def print_table_of_contents(cops)
     path = "#{Dir.pwd}/manual/cops.md"

@@ -62,6 +62,9 @@ Lint/UselessAccessModifier:
 Lint/BooleanSymbol:
   Enabled: false
 
+Metrics/AbcSize:
+  Max: 20
+
 Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
