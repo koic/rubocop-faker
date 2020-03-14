@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 1.0.0 (2019-03-14)
+
 ### New features
 
 * [#3](https://github.com/koic/rubocop-faker/issues/3): Make `Faker/DeprecatedArguments` aware of `Faker::Base.unique`. ([@koic][])
