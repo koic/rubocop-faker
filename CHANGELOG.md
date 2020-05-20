@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* Fix a typo for `Faker::Vehicle`'s `state_abbreviation` kwarg. ([@koic][])
+
 ## 1.0.0 (2020-03-14)
 
 ### New features

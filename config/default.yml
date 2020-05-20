@@ -435,7 +435,7 @@ Faker/DeprecatedArguments:
         - min
         - max
       license_plate:
-        - state_abreviation
+        - state_abbreviation
     Faker::WorldCup:
       group:
         - group
