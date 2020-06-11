@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'A RuboCop extension for Faker.'
   spec.homepage      = 'https://github.com/koic/rubocop-faker'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
 
@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'faker', '>= 2.12.0'
-  spec.add_runtime_dependency 'rubocop', '>= 0.74'
+  spec.add_runtime_dependency 'rubocop', '>= 0.82.0'
 end
