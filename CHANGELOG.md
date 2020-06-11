@@ -6,6 +6,10 @@
 
 * Fix a typo for `Faker::Vehicle`'s `state_abbreviation` kwarg. ([@koic][])
 
+### Changes
+
+* Require Faker 2.1.2 or higher. ([@koic][])
+
 ## 1.0.0 (2020-03-14)
 
 ### New features
