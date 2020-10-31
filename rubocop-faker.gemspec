@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'faker', '>= 2.12.0'
-  spec.add_runtime_dependency 'rubocop', '>= 0.82.0'
+  spec.add_runtime_dependency 'rubocop', '>= 0.89.0'
 end

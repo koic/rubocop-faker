@@ -14,8 +14,9 @@ module RuboCop
       #   # good
       #   Avatar.image(slug: slug, size: size, format: format)
       #
-      class DeprecatedArguments < Cop
+      class DeprecatedArguments < Base
         include RangeHelp
+        extend AutoCorrector
 
         MSG = 'Passing `%<arg>s` with the %<index>s argument of ' \
               '`%<class_name>s.%<method_name>s` is deprecated. ' \
@@ -46,17 +47,6 @@ module RuboCop
           end
         end
 
-        def autocorrect(node)
-          methods = argument_keywords[faker_class_name(node)]
-          keywords = methods[node.method_name.to_s]
-
-          kwargs = build_kwargs_style(node, keywords)
-
-          lambda do |corrector|
-            corrector.replace(arguments_range(node), kwargs)
-          end
-        end
-
         private
 
         def unique_generator_method?(node)
@@ -82,10 +72,20 @@ module RuboCop
 
         def add_offense_for_arguments(node, argument, message)
           add_offense(
-            node,
-            location: argument.source_range,
+            argument.source_range,
             message: message
-          )
+          ) do |corrector|
+            autocorrect(corrector, node)
+          end
+        end
+
+        def autocorrect(corrector, node)
+          methods = argument_keywords[faker_class_name(node)]
+          keywords = methods[node.method_name.to_s]
+
+          kwargs = build_kwargs_style(node, keywords)
+
+          corrector.replace(arguments_range(node), kwargs)
         end
 
         def build_kwargs_style(node, keywords)

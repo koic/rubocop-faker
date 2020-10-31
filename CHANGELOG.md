@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Drop support for RuboCop 0.88 or lower. ([@koic][])
+
 ## 1.1.0 (2020-06-11)
 
 ### Bug fixes
