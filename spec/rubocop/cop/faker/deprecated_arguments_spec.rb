@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
-  subject(:cop) { described_class.new(config) }
-
   # RuboCop::ConfigLoader.default_configuration['Faker/DeprecatedArguments']
   let(:cop_config) do
     {
