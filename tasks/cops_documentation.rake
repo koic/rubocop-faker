@@ -239,7 +239,7 @@ task generate_cops_documentation: :yard_for_generate_documentation do
       .map(&:to_s)
       .sort
       .map { |department| table_of_content_for_department(cops, department) }
-      .reject(&:nil?)
+      .compact
       .join("\n")
   end
 
@@ -252,7 +252,7 @@ task generate_cops_documentation: :yard_for_generate_documentation do
       sh('GIT_PAGER=cat git diff manual')
 
       warn 'The manual directory is out of sync. ' \
-        'Run `rake generate_cops_documentation` and commit the results.'
+           'Run `rake generate_cops_documentation` and commit the results.'
       exit!
     end
   end
@@ -291,17 +291,15 @@ task documentation_syntax_check: :yard_for_generate_documentation do
     end
 
     examples.to_a.each do |example|
-      begin
-        buffer = Parser::Source::Buffer.new('<code>', 1)
-        buffer.source = example.text
-        parser = Parser::Ruby25.new(RuboCop::AST::Builder.new)
-        parser.diagnostics.all_errors_are_fatal = true
-        parser.parse(buffer)
-      rescue Parser::SyntaxError => e
-        path = example.object.file
-        puts "#{path}: Syntax Error in an example. #{e}"
-        ok = false
-      end
+      buffer = Parser::Source::Buffer.new('<code>', 1)
+      buffer.source = example.text
+      parser = Parser::Ruby25.new(RuboCop::AST::Builder.new)
+      parser.diagnostics.all_errors_are_fatal = true
+      parser.parse(buffer)
+    rescue Parser::SyntaxError => e
+      path = example.object.file
+      puts "#{path}: Syntax Error in an example. #{e}"
+      ok = false
     end
   end
   abort unless ok

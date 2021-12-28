@@ -4,7 +4,7 @@
 
 ### Changes
 
-* Drop support for RuboCop 0.88 or lower. ([@koic][])
+* Drop support for Ruby 2.4. ([@koic][])
 
 ## 1.1.0 (2020-06-11)
 

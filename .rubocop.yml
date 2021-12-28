@@ -8,7 +8,7 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
 
 Naming/PredicateName:
   # Method define macros for dynamically generated method.
@@ -82,4 +82,7 @@ Metrics/ModuleLength:
     - 'test/**/*.rb'
 
 Performance/ChainArrayAllocation:
+  Enabled: false
+
+InternalAffairs/UndefinedConfig:
   Enabled: false
