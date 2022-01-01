@@ -57,8 +57,10 @@ Auto-correction to keyword argument style on Faker 2.
 % rubocop --require rubocop-faker --only Faker/DeprecatedArguments --auto-correct
 ```
 
-### Rubocop configuration file
+### RuboCop configuration file
+
 Add `rubocop-faker` to required extension.
+
 ```yaml
 # .rubocop.yml
 require:
