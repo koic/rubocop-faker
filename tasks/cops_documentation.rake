@@ -203,7 +203,7 @@ task generate_cops_documentation: :yard_for_generate_documentation do
     end
     return if selected_cops.empty?
 
-    type_title = department[0].upcase + department[1..-1]
+    type_title = department[0].upcase + department[1..]
     filename = "cops_#{department.downcase}.md"
     content = +"#### Department [#{type_title}](#{filename})\n\n"
     selected_cops.each do |cop|

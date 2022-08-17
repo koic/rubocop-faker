@@ -4,7 +4,7 @@
 
 ### Changes
 
-* Drop support for Ruby 2.4. ([@koic][])
+* Drop support for Ruby 2.4 and 2.5. ([@koic][])
 
 ## 1.1.0 (2020-06-11)
 
