@@ -54,7 +54,7 @@ Check positional argument style before Faker 2.
 Auto-correction to keyword argument style on Faker 2.
 
 ```console
-% rubocop --require rubocop-faker --only Faker/DeprecatedArguments --auto-correct
+% rubocop --require rubocop-faker --only Faker/DeprecatedArguments --autocorrect
 ```
 
 ### RuboCop configuration file
