@@ -258,7 +258,7 @@ task generate_cops_documentation: :yard_for_generate_documentation do
   end
 
   def main
-    cops   = RuboCop::Cop::Cop.registry
+    cops   = RuboCop::Cop::Registry.global
     config = RuboCop::ConfigLoader.load_file('config/default.yml')
 
     YARD::Registry.load!
@@ -282,7 +282,7 @@ task documentation_syntax_check: :yard_for_generate_documentation do
 
   ok = true
   YARD::Registry.load!
-  cops = RuboCop::Cop::Cop.registry
+  cops = RuboCop::Cop::Registry.global
   cops.each do |cop|
     examples = YARD::Registry.all(:class).find do |code_object|
       next unless RuboCop::Cop::Badge.for(code_object.to_s) == cop.badge
