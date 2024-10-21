@@ -223,13 +223,11 @@ task generate_cops_documentation: :yard_for_generate_documentation do
 
     content << "\n<!-- END_COP_LIST -->"
 
-    content = if original.empty?
-                content
-              else
-                original.sub(
-                  /<!-- START_COP_LIST -->.+<!-- END_COP_LIST -->/m, content
-                )
-              end
+    unless original.empty?
+      content = original.sub(
+        /<!-- START_COP_LIST -->.+<!-- END_COP_LIST -->/m, content
+      )
+    end
     File.write(path, content)
   end
 
@@ -238,8 +236,7 @@ task generate_cops_documentation: :yard_for_generate_documentation do
       .departments
       .map(&:to_s)
       .sort
-      .map { |department| table_of_content_for_department(cops, department) }
-      .compact
+      .filter_map { |department| table_of_content_for_department(cops, department) }
       .join("\n")
   end
 

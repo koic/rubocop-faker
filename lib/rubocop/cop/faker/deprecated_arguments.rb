@@ -3,7 +3,6 @@
 module RuboCop
   module Cop
     module Faker
-      #
       # Checks that Faker arguments style is based on Faker 2.
       # Use keyword arguments instead of positional arguments.
       #
@@ -50,7 +49,7 @@ module RuboCop
         private
 
         def unique_generator_method?(node)
-          node.method?(:unique) && node.arguments.size.zero?
+          node.method?(:unique) && node.arguments.empty?
         end
 
         def format_message(keyword:, arg:, index:, class_name:, method_name:)
@@ -72,7 +71,7 @@ module RuboCop
 
         def add_offense_for_arguments(node, argument, message)
           add_offense(
-            argument.source_range,
+            argument,
             message: message
           ) do |corrector|
             autocorrect(corrector, node)
