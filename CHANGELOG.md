@@ -2,9 +2,15 @@
 
 ## master (unreleased)
 
+## 1.2.0 (2024-10-22)
+
+### Bug fixes
+
+* [#7](https://github.com/koic/rubocop-faker/issues/7): Suppress RuboCop's deprecation warning. ([@koic][])
+
 ### Changes
 
-* Drop support for Ruby 2.4 and 2.5. ([@koic][])
+* Drop support for Ruby 2.6 and lower. ([@koic][])
 
 ## 1.1.0 (2020-06-11)
 
