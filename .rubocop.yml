@@ -9,6 +9,7 @@ require:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.6
+  SuggestExtensions: false
 
 Naming/PredicateName:
   # Method define macros for dynamically generated method.
