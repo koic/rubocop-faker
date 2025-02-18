@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 1.3.0 (2025-02-18)
+
+### New features
+
+* Pluginfy RuboCop Faker. ([@koic][])
+* Support safe navigation operator for `Faker/DeprecatedArguments`. ([@koic][])
+
 ## 1.2.0 (2024-10-22)
 
 ### Bug fixes
