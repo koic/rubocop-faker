@@ -45,6 +45,7 @@ module RuboCop
             add_offense_for_arguments(node, argument, message)
           end
         end
+        alias on_csend on_send
 
         private
 

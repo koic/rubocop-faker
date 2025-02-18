@@ -31,6 +31,17 @@ RSpec.describe RuboCop::Cop::Faker::DeprecatedArguments, :config do
     RUBY
   end
 
+  it 'registers an offense when using a positional argument with safe navigation' do
+    expect_offense(<<~RUBY)
+      Faker::Avatar&.image(slug)
+                           ^^^^ Passing `slug` with the 1st argument of `Faker::Avatar.image` is deprecated. Use keyword argument like `Faker::Avatar.image(slug: slug)` instead.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      Faker::Avatar&.image(slug: slug)
+    RUBY
+  end
+
   it 'registers an offense ' \
      'when keyword name and actual argument name are different' do
     expect_offense(<<~RUBY)
