@@ -16,7 +16,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'homepage_uri' => spec.homepage,
-    'rubygems_mfa_required' => 'true'
+    'rubygems_mfa_required' => 'true',
+    'default_lint_roller_plugin' => 'RuboCop::Faker::Plugin'
   }
 
   # Specify which files should be added to the gem when it is released.
@@ -29,5 +30,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'faker', '>= 2.12.0'
-  spec.add_dependency 'rubocop', '>= 1.13.0'
+  spec.add_dependency 'lint_roller', '~> 1.1'
+  spec.add_dependency 'rubocop', '>= 1.72.1'
 end

@@ -48,13 +48,13 @@ This gem offers the only `Faker/DeprecatedArguments` cop. It is intended to conv
 Check positional argument style before Faker 2.
 
 ```console
-% rubocop --require rubocop-faker --only Faker/DeprecatedArguments
+% rubocop --plugin rubocop-faker --only Faker/DeprecatedArguments
 ```
 
 Auto-correction to keyword argument style on Faker 2.
 
 ```console
-% rubocop --require rubocop-faker --only Faker/DeprecatedArguments --autocorrect
+% rubocop --plugin rubocop-faker --only Faker/DeprecatedArguments --autocorrect
 ```
 
 ### RuboCop configuration file
@@ -63,9 +63,12 @@ Add `rubocop-faker` to required extension.
 
 ```yaml
 # .rubocop.yml
-require:
+plugins:
   - rubocop-faker
 ```
+
+> [!NOTE]
+> The plugin system is supported in RuboCop 1.72+. In earlier versions, use `require` instead of `plugins`.
 
 ## Contributing
 
